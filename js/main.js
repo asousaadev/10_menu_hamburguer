@@ -27,17 +27,29 @@ $(document).ready(function () {
                 required: false
             }
         },
-        messages:{
+        messages: {
             nome: 'Por favor, insira o seu nome'
         },
-        submitHandler: function(form) {
+        submitHandler: function (form) {
             console.log(form)
         },
-        invalidHandler: function(evento, validador){
+        invalidHandler: function (evento, validador) {
             let camposIncorretos = validador.numberOfInvalids();
-            if (camposIncorretos){
+            if (camposIncorretos) {
                 alert(`Exitem ${camposIncorretos} campos incorretos`)
             }
         }
+    })
+
+    $('.lista-veiculos button').click(function () {
+        const destino = $('#contato');
+
+        const nomeVeiculo = $(this).parent().find('h3').text();
+
+        $('#veiculo-de-interesse').val(nomeVeiculo);
+
+    $('html').animate({
+        scrollTop: destino.offset().top
+        }, 1000)
     })
 })
